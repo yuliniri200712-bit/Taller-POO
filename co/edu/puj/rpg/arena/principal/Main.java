@@ -20,10 +20,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // ================= Inicialización =================
         Tablero tablero = new Tablero(COFRE_X, COFRE_Y);
 
-        // Colecciones dinámicas declaradas con la referencia abstracta List
         List<Personaje> escuadron = new ArrayList<>();
         escuadron.add(new Guerrero("Thorin", 120, 15, 0, 0, 10));
         escuadron.add(new Mago("Gandalf", 80, 25, 0, 1, 50));
@@ -33,13 +31,11 @@ public class Main {
         enemigos.add(new Enemigo("Goblin", 50, 12, 4, 0));
         enemigos.add(new Enemigo("Troll", 90, 20, 4, 4));
 
-        // Contenedor genérico: solo admite Pocion, sin necesidad de casteos
         Inventario<Pocion> inventario = new Inventario<>();
         inventario.agregar(new Pocion("Poción Menor", 25));
         inventario.agregar(new Pocion("Poción Mayor", 50));
         inventario.agregar(new Pocion("Poción Menor", 25));
 
-        // El héroe principal es el primero del escuadrón (Thorin)
         Personaje heroePrincipal = escuadron.get(0);
         boolean cofreAlcanzado = false;
         int turno = 0;
@@ -49,17 +45,14 @@ public class Main {
         System.out.printf("Objetivo: eliminar a todos los enemigos o llevar a %s al cofre [C] (%d,%d).%n",
                 heroePrincipal.getNombre(), COFRE_X, COFRE_Y);
 
-        // ================= Ciclo principal de batalla =================
         do {
             turno++;
 
-            // Fase de renderizado y estado
             tablero.actualizar(escuadron, enemigos);
             System.out.printf("%n=============== TURNO %d ===============%n", turno);
             tablero.mostrar();
             mostrarEstadisticas(escuadron, enemigos, inventario);
 
-            // Turno del jugador: recorrido for-each sobre cada héroe vivo
             for (Personaje heroe : escuadron) {
                 if (!heroe.estaVivo() || !hayVivos(enemigos)) {
                     continue;
@@ -89,7 +82,6 @@ public class Main {
                     }
                 }
 
-                // Todo cambio se refleja de inmediato en la matriz del mapa
                 tablero.actualizar(escuadron, enemigos);
 
                 if (heroe == heroePrincipal && tablero.esCofre(heroe.getPosicionX(), heroe.getPosicionY())) {
@@ -99,18 +91,15 @@ public class Main {
                 }
             }
 
-            // Turno del ente enemigo (IA)
             if (!cofreAlcanzado) {
                 turnoEnemigo(escuadron, enemigos);
             }
 
-            // Limpieza de bajas al cierre del turno
             escuadron.removeIf(p -> !p.estaVivo());
             enemigos.removeIf(p -> !p.estaVivo());
 
         } while (!escuadron.isEmpty() && sumaVida(escuadron) > 0 && !enemigos.isEmpty() && !cofreAlcanzado);
 
-        // ================= Condiciones de victoria / derrota =================
         tablero.actualizar(escuadron, enemigos);
         System.out.printf("%n=============== FIN DE LA BATALLA ===============%n");
         tablero.mostrar();
@@ -126,7 +115,6 @@ public class Main {
         scanner.close();
     }
 
-    // Opción 1: el héroe elige un enemigo vivo y le aplica su ataque especial
     private static boolean atacar(Scanner scanner, Personaje heroe, List<Personaje> enemigos) {
         List<Personaje> objetivos = new ArrayList<>();
         for (Personaje e : enemigos) {
@@ -144,7 +132,6 @@ public class Main {
         System.out.printf("Seleccione el objetivo: ");
         int indice = leerEntero(scanner) - 1;
 
-        // Validación del índice: evita IndexOutOfBoundsException
         if (indice < 0 || indice >= objetivos.size()) {
             System.out.printf("[ERROR] Objetivo inválido.%n");
             return false;
@@ -152,7 +139,7 @@ public class Main {
 
         Personaje objetivo = objetivos.get(indice);
         int vidaAntes = objetivo.getVida();
-        // Invocación polimórfica: se ejecuta el ataque especial de la instancia real
+
         heroe.realizarAtaqueEspecial(objetivo);
         System.out.printf("%s usa su ataque especial contra %s: %d de daño (Vida: %d)%n",
                 heroe.getNombre(), objetivo.getNombre(), vidaAntes - objetivo.getVida(), objetivo.getVida());
@@ -162,7 +149,6 @@ public class Main {
         return true;
     }
 
-    // Opción 2: consume una poción del inventario genérico
     private static boolean usarInventario(Scanner scanner, Personaje heroe, Inventario<Pocion> inventario) {
         if (inventario.estaVacio()) {
             System.out.printf("[ERROR] El inventario está vacío.%n");
@@ -171,7 +157,7 @@ public class Main {
 
         System.out.printf("Inventario:%n");
         for (int i = 0; i < inventario.tamanio(); i++) {
-            Pocion p = inventario.obtener(i); // sin casteo gracias a los genéricos
+            Pocion p = inventario.obtener(i);
             System.out.printf("  %d. %s (+%d vida)%n", i + 1, p.getNombre(), p.getPuntosCuracion());
         }
         System.out.printf("Seleccione la poción: ");
@@ -189,7 +175,6 @@ public class Main {
         return true;
     }
 
-    // Opción 3: mueve al héroe una casilla validando los límites de la matriz
     private static boolean mover(Scanner scanner, Personaje heroe, Tablero tablero) {
         System.out.printf("Dirección (W arriba, S abajo, A izquierda, D derecha): ");
         String direccion = leerTexto(scanner).trim().toUpperCase();
@@ -227,7 +212,6 @@ public class Main {
         return true;
     }
 
-    // IA enemiga: cada enemigo ataca al héroe vivo con menos vida; en furia usa el ataque sobrecargado
     private static void turnoEnemigo(List<Personaje> escuadron, List<Personaje> enemigos) {
         System.out.printf("%n--- Turno enemigo ---%n");
         for (Personaje enemigo : enemigos) {
@@ -241,7 +225,7 @@ public class Main {
                     objetivo = heroe;
                 }
             }
-            // Si no queda ningún héroe vivo no hay a quién atacar (evita NullPointerException)
+
             if (objetivo == null) {
                 return;
             }
@@ -290,7 +274,6 @@ public class Main {
         return total;
     }
 
-    // Lee un entero sin romper el programa si el usuario escribe texto
     private static int leerEntero(Scanner scanner) {
         if (scanner.hasNextInt()) {
             return scanner.nextInt();
@@ -300,7 +283,6 @@ public class Main {
         }
     }
 
-    // Lee una palabra; si la entrada de consola se cierra, termina el juego de forma controlada
     private static String leerTexto(Scanner scanner) {
         if (!scanner.hasNext()) {
             System.out.printf("%nEntrada finalizada. Saliendo de la arena...%n");

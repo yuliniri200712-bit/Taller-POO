@@ -1,6 +1,5 @@
 package co.edu.puj.rpg.arena.modelo;
 
-// Subclase concreta: especialización de combate mágico
 public class Mago extends Personaje {
 
     private static final int COSTO_BOLA_FUEGO = 20;
@@ -13,7 +12,6 @@ public class Mago extends Personaje {
         this.puntosMana = puntosMana;
     }
 
-    // Barrera mágica: si tiene maná suficiente, reduce el daño a la mitad
     @Override
     public void defender(int danoRecibido) {
         if (puntosMana >= COSTO_BARRERA) {
@@ -24,7 +22,6 @@ public class Mago extends Personaje {
         }
     }
 
-    // Bola de Fuego: consume maná y duplica el daño; sin maná lanza un ataque básico
     @Override
     public void realizarAtaqueEspecial(Personaje objetivo) {
         if (puntosMana >= COSTO_BOLA_FUEGO) {
