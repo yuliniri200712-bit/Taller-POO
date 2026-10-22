@@ -1,6 +1,6 @@
-package arena.tablero;
+package co.edu.puj.rpg.arena.tablero;
 
-import arena.modelo.Personaje;
+import co.edu.puj.rpg.arena.modelo.Personaje;
 
 import java.util.List;
 

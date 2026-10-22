@@ -13,7 +13,7 @@
 
 1. **Puntos de interrupción (*Breakpoints*):** haz clic en el margen izquierdo, junto al número de línea, en estos dos lugares:
    - la primera línea de `realizarAtaqueEspecial()` en `Guerrero.java` y en `Mago.java`;
-   - la línea `turno++;` al inicio del `do-while` en `arena/principal/Main.java`.
+   - la línea `turno++;` al inicio del `do-while` en `co/edu/puj/rpg/arena/principal/Main.java`.
 2. **Modo Debug:** ejecuta `Main` con **Shift + F9** o con el ícono del escarabajo verde.
 3. **Paso a paso:**
    - **F8 (*Step Over*)** avanza línea por línea sin entrar en los métodos.

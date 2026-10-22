@@ -1,4 +1,4 @@
-package arena.modelo;
+package co.edu.puj.rpg.arena.modelo;
 
 /*
  * ¿Por qué una clase abstracta y no solo una interfaz?

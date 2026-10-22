@@ -1,4 +1,4 @@
-package arena.modelo;
+package co.edu.puj.rpg.arena.modelo;
 
 // Subclase concreta: especialización de combate mágico
 public class Mago extends Personaje {

@@ -1,4 +1,4 @@
-package arena.modelo;
+package co.edu.puj.rpg.arena.modelo;
 
 // Subclase concreta: especialización de combate físico
 public class Guerrero extends Personaje {

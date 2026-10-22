@@ -1,4 +1,4 @@
-package arena.inventario;
+package co.edu.puj.rpg.arena.inventario;
 
 public class Pocion {
 

@@ -1,12 +1,12 @@
-package arena.principal;
+package co.edu.puj.rpg.arena.principal;
 
-import arena.inventario.Inventario;
-import arena.inventario.Pocion;
-import arena.modelo.Enemigo;
-import arena.modelo.Guerrero;
-import arena.modelo.Mago;
-import arena.modelo.Personaje;
-import arena.tablero.Tablero;
+import co.edu.puj.rpg.arena.inventario.Inventario;
+import co.edu.puj.rpg.arena.inventario.Pocion;
+import co.edu.puj.rpg.arena.modelo.Enemigo;
+import co.edu.puj.rpg.arena.modelo.Guerrero;
+import co.edu.puj.rpg.arena.modelo.Mago;
+import co.edu.puj.rpg.arena.modelo.Personaje;
+import co.edu.puj.rpg.arena.tablero.Tablero;
 
 import java.util.ArrayList;
 import java.util.List;

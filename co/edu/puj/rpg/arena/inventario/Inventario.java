@@ -1,4 +1,4 @@
-package arena.inventario;
+package co.edu.puj.rpg.arena.inventario;
 
 import java.util.ArrayList;
 import java.util.List;

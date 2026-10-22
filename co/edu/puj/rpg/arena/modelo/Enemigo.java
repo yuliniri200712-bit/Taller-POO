@@ -1,4 +1,4 @@
-package arena.modelo;
+package co.edu.puj.rpg.arena.modelo;
 
 // Subclase concreta para los entes enemigos controlados por la IA
 public class Enemigo extends Personaje {

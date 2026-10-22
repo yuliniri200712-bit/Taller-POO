@@ -1,4 +1,4 @@
-package arena.modelo;
+package co.edu.puj.rpg.arena.modelo;
 
 /*
  * Contrato de comportamiento puro: define la acción defensiva mínima que
