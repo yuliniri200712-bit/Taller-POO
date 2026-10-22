@@ -1,6 +1,5 @@
 package poo.seccion6;
 
-// Caso de Estudio 4 corregido: this evita el sombreado de variables
 public class Vehiculo {
     private int velocidadMaxima;
     private boolean encendido;

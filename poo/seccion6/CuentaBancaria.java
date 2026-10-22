@@ -1,6 +1,5 @@
 package poo.seccion6;
 
-// Caso de Estudio 3 corregido: el constructor no declara tipo de retorno
 public class CuentaBancaria {
     private String numeroCuenta;
     private double saldo;

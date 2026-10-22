@@ -2,7 +2,6 @@ package poo.seccion2;
 
 public class ConversorMoneda {
 
-    // Constructor privado: impide instanciar la clase utilitaria
     private ConversorMoneda() {}
 
     public static double convertirDolaresAEuros(double montoDolares, double tasaCambio) {

@@ -2,7 +2,6 @@ package poo.seccion1;
 
 public class Estudiante {
 
-    // Atributos sin inicializar: el estado inicial lo asignan los constructores
     private String identificacion;
     private String nombreCompleto;
     private double promedioCalificaciones;

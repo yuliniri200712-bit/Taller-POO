@@ -3,25 +3,21 @@ package poo.seccion4;
 public class Principal {
 
     public static void main(String[] args) {
-        // Vehículos: uno con constructor por defecto y dos parametrizados
         Vehiculo vehiculo1 = new Vehiculo("Toyota", "Corolla", 15000.50, 180, true);
         Vehiculo vehiculo2 = new Vehiculo();
         Vehiculo vehiculo3 = new Vehiculo("Mazda", "CX-5", 32000.75, 200, false);
         Vehiculo[] vehiculos = {vehiculo1, vehiculo2, vehiculo3};
 
-        // Estudiantes
         Estudiante estudiante1 = new Estudiante("2024001", "Laura Martínez", 4.35, true);
         Estudiante estudiante2 = new Estudiante("2024002", "Andrés Castro", 3.80, true);
         Estudiante estudiante3 = new Estudiante("2024003", "Sofía Ramírez", 2.95, false);
         Estudiante[] estudiantes = {estudiante1, estudiante2, estudiante3};
 
-        // Cuentas bancarias con los tres constructores sobrecargados
         CuentaBancaria cuenta1 = new CuentaBancaria("1001", "Carlos Pérez", 1000.00, 500.00);
         CuentaBancaria cuenta2 = new CuentaBancaria("1002", "Ana Gómez");
         CuentaBancaria cuenta3 = new CuentaBancaria();
         CuentaBancaria[] cuentas = {cuenta1, cuenta2, cuenta3};
 
-        // Modificación de estado
         boolean deposito1 = cuenta1.depositar(250.75);
         boolean deposito2 = cuenta2.depositar(150.00);
         boolean retiro2 = cuenta2.retirar(100.00);
@@ -35,7 +31,6 @@ public class Principal {
         System.out.printf("Depósito negativo cuenta 000000: %b%n", depositoInvalido);
         System.out.printf("Retiro sin fondos cuenta 000000: %b%n", retiroInvalido);
 
-        // Métodos estáticos invocados directamente desde la clase
         double euros = ConversorMoneda.convertirDolaresAEuros(100.0, 0.92);
         double conversionInvalida = ConversorMoneda.convertirDolaresAEuros(-5.0, 0.92);
         System.out.printf("%n=== CONVERSOR DE MONEDA ===%n");
@@ -43,7 +38,6 @@ public class Principal {
         System.out.printf("Conversión inválida: %.2f%n", conversionInvalida);
         System.out.printf("Saldo cuenta 1001 formateado: %s%n", ConversorMoneda.formatearMoneda(cuenta1.getSaldo()));
 
-        // Reportes finales formateados
         System.out.printf("%n=== REPORTE DE VEHÍCULOS ===%n");
         for (int i = 0; i < vehiculos.length; i++) {
             Vehiculo v = vehiculos[i];

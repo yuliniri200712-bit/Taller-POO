@@ -1,6 +1,5 @@
 package poo.seccion6;
 
-// Caso de Estudio 2 corregido: el método de instancia se invoca a través de un objeto
 public class GestorVehiculos {
 
     public void encenderMotor() {

@@ -12,7 +12,6 @@ public class PruebaSeccion2 {
         System.out.printf("Retiro 5000: %b%n", cuenta.retirar(5000));
         System.out.printf("Saldo: %s%n", ConversorMoneda.formatearMoneda(cuenta.getSaldo()));
 
-        // Métodos estáticos invocados sin instanciar ConversorMoneda
         System.out.printf("100 USD en EUR: %s%n", ConversorMoneda.formatearMoneda(ConversorMoneda.convertirDolaresAEuros(100, 0.92)));
         System.out.printf("Conversión inválida: %.2f%n", ConversorMoneda.convertirDolaresAEuros(0, 0.92));
     }

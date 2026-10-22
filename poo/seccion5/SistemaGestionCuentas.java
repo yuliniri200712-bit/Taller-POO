@@ -7,7 +7,6 @@ public class SistemaGestionCuentas {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Arreglo de tamaño fijo pre-poblado
         CuentaBancaria[] cuentas = new CuentaBancaria[3];
         cuentas[0] = new CuentaBancaria("1001", "Carlos Pérez", 1250.75, 500.0);
         cuentas[1] = new CuentaBancaria("1002", "Ana Gómez");
@@ -94,7 +93,6 @@ public class SistemaGestionCuentas {
         scanner.close();
     }
 
-    // Busca una cuenta recorriendo el arreglo; retorna null si no existe
     private static CuentaBancaria buscarCuenta(CuentaBancaria[] cuentas, String numeroCuenta) {
         for (int i = 0; i < cuentas.length; i++) {
             if (cuentas[i].getNumeroCuenta().equals(numeroCuenta)) {

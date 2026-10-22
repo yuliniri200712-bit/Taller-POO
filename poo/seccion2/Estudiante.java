@@ -14,7 +14,6 @@ public class Estudiante {
         this.estaMatriculado = estaMatriculado;
     }
 
-    // Construye el reporte sin imprimirlo; la impresión es responsabilidad de la clase ejecutable
     public String obtenerReporteAcademicos() {
         StringBuilder reporte = new StringBuilder();
         reporte.append(String.format("ID: %s | ", identificacion));
