@@ -2,13 +2,6 @@ package co.edu.puj.rpg.modelo.enemigo;
 
 import co.edu.puj.rpg.modelo.Personaje;
 
-/*
- * Clase ubicada en el subpaquete co.edu.puj.rpg.modelo.enemigo.
- * Sus atributos son private, por lo que ni Main (co.edu.puj.rpg.principal)
- * ni Personaje (co.edu.puj.rpg.modelo) pueden leerlos o modificarlos directamente.
- * Si se declararan sin modificador (package-private), tampoco serían visibles
- * desde Main, porque Main está en un paquete diferente.
- */
 public class Enemigo {
 
     private String nombre;

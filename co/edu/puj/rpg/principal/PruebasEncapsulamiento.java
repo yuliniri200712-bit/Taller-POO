@@ -2,7 +2,6 @@ package co.edu.puj.rpg.principal;
 
 import co.edu.puj.rpg.modelo.Personaje;
 
-// Sección 5 - Guía de verificación (punto 3): pruebas manuales con valores límite (-10, 0, 100000)
 public class PruebasEncapsulamiento {
 
     public static void main(String[] args) {
@@ -23,8 +22,6 @@ public class PruebasEncapsulamiento {
             System.out.printf("setOro(%.2f) -> Aceptado: %b | Oro: %.2f%n", valor, aceptado, heroe.getOro());
         }
 
-        // setNivel() es protected: desde este paquete no es accesible, se verifica
-        // indirectamente observando que el nivel inicial es válido (>= 1).
         System.out.printf("%n=== NIVEL ===%n");
         System.out.printf("Nivel inicial: %d%n", heroe.getNivel());
     }

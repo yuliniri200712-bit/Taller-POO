@@ -16,7 +16,6 @@ public class Main {
         Personaje heroe = new Personaje("Aragorn", 100, 15, 50.0);
         Enemigo enemigo = new Enemigo("Orco", 80, 12, 120);
 
-        // Historial de batalla acumulado durante todo el combate
         StringBuilder historial = new StringBuilder();
         int ronda = 0;
         boolean huyo = false;
@@ -111,7 +110,6 @@ public class Main {
                     System.out.printf("[ERROR] Opción inválida.%n");
             }
 
-            // Al finalizar cada ronda se imprime el historial consolidado
             if (terminaRonda) {
                 System.out.printf("%n=== HISTORIAL DE BATALLA ===%n%s", historial);
             }
@@ -168,7 +166,7 @@ public class Main {
 
         switch (opcion) {
             case 1:
-                // comprarPocionGrande llama a setOro() con el saldo menos el costo
+
                 if (heroe.comprarPocionGrande(COSTO_POCION_GRANDE)) {
                     System.out.printf("Compra exitosa. Pociones: %d | Oro restante: %.2f%n",
                             heroe.getPocionesGrandes(), heroe.getOro());
